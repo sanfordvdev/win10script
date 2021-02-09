@@ -58,12 +58,12 @@ $steam.height                    = 30
 $steam.location                  = New-Object System.Drawing.Point(250,19)
 $steam.Font                      = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$firefox                         = New-Object system.Windows.Forms.Button
-$firefox.text                    = "Firefox"
-$firefox.width                   = 150
-$firefox.height                  = 30
-$firefox.location                = New-Object System.Drawing.Point(250,61)
-$firefox.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$syncthing                         = New-Object system.Windows.Forms.Button
+$syncthing.text                    = "Syncthing"
+$syncthing.width                   = 150
+$syncthing.height                  = 30
+$syncthing.location                = New-Object System.Drawing.Point(250,61)
+$syncthing.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $7zip                            = New-Object system.Windows.Forms.Button
 $7zip.text                       = "7-Zip"
@@ -86,19 +86,19 @@ $adobereader.height              = 30
 $adobereader.location            = New-Object System.Drawing.Point(417,61)
 $adobereader.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$notepad                         = New-Object system.Windows.Forms.Button
-$notepad.text                    = "Notepad++"
-$notepad.width                   = 150
-$notepad.height                  = 30
-$notepad.location                = New-Object System.Drawing.Point(417,104)
-$notepad.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$office365                         = New-Object system.Windows.Forms.Button
+$office365.text                    = "Office365"
+$office365.width                   = 150
+$office365.height                  = 30
+$office365.location                = New-Object System.Drawing.Point(417,104)
+$office365.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$gchrome                         = New-Object system.Windows.Forms.Button
-$gchrome.text                    = "Google Chrome"
-$gchrome.width                   = 150
-$gchrome.height                  = 30
-$gchrome.location                = New-Object System.Drawing.Point(250,104)
-$gchrome.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$git                        = New-Object system.Windows.Forms.Button
+$git.text                    = "Git"
+$git.width                   = 150
+$git.height                  = 30
+$git.location                = New-Object System.Drawing.Point(250,104)
+$git.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $mpc                             = New-Object system.Windows.Forms.Button
 $mpc.text                        = "Media Player Classic"
@@ -416,7 +416,7 @@ $lightmode.location              = New-Object System.Drawing.Point(417,45)
 $lightmode.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Form.controls.AddRange(@($Panel1,$Label1,$Panel2,$Label3,$Panel3,$Label4,$Label15,$Panel4,$Label20,$Label21,$Label23,$PictureBox1))
-$Panel1.controls.AddRange(@($installchoco,$steam,$firefox,$7zip,$irfanview,$adobereader,$notepad,$gchrome,$mpc,$vlc,$powertoys,$winterminal,$vscode,$Label2))
+$Panel1.controls.AddRange(@($installchoco,$steam,$syncthing,$7zip,$irfanview,$adobereader,$office365,$git,$mpc,$vlc,$powertoys,$winterminal,$vscode,$Label2))
 $Panel2.controls.AddRange(@($essentialtweaks,$backgroundapps,$cortana,$windowssearch,$actioncenter,$darkmode,$visualfx,$onedrive,$Label22,$lightmode))
 $Panel3.controls.AddRange(@($securitylow,$securityhigh,$Label5,$Label6,$Label7,$Label8,$Label9,$Label10,$Label11,$Label12,$Label13))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$Label16,$Label17,$Label18,$Label19))
@@ -435,15 +435,15 @@ $steam.Add_Click({
 	    $wshell.Popup("Operation Completed",0,"Done",0x0)	
 })
 
-$firefox.Add_Click({ 
-    Write-Host "Installing Firefox"
-    choco install firefox -y
+$syncthing.Add_Click({ 
+    Write-Host "Installing Synchting"
+    choco install synchting -y
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
-$gchrome.Add_Click({ 
-    Write-Host "Installing Google Chrome"
-    choco install googlechrome -y
+$git.Add_Click({ 
+    Write-Host "Installing Git"
+    choco install git -y
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
@@ -459,9 +459,9 @@ $adobereader.Add_Click({
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
-$notepad.Add_Click({ 
+$office365.Add_Click({ 
     Write-Host "Installing Notepad++"
-    choco install notepadplusplus -y
+    choco install office365 -y
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
