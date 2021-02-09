@@ -100,12 +100,12 @@ $git.height                  = 30
 $git.location                = New-Object System.Drawing.Point(250,104)
 $git.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$mpc                             = New-Object system.Windows.Forms.Button
-$mpc.text                        = "Media Player Classic"
-$mpc.width                       = 150
-$mpc.height                      = 30
-$mpc.location                    = New-Object System.Drawing.Point(584,61)
-$mpc.Font                        = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$discord                             = New-Object system.Windows.Forms.Button
+$discord.text                        = "Discord"
+$discord.width                       = 150
+$discord.height                      = 30
+$discord.location                    = New-Object System.Drawing.Point(584,61)
+$discord.Font                        = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $vlc                             = New-Object system.Windows.Forms.Button
 $vlc.text                        = "VLC"
@@ -416,7 +416,7 @@ $lightmode.location              = New-Object System.Drawing.Point(417,45)
 $lightmode.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Form.controls.AddRange(@($Panel1,$Label1,$Panel2,$Label3,$Panel3,$Label4,$Label15,$Panel4,$Label20,$Label21,$Label23,$PictureBox1))
-$Panel1.controls.AddRange(@($installchoco,$steam,$syncthing,$7zip,$irfanview,$adobereader,$office365,$git,$mpc,$vlc,$powertoys,$winterminal,$vscode,$Label2))
+$Panel1.controls.AddRange(@($installchoco,$steam,$syncthing,$7zip,$irfanview,$adobereader,$office365,$git,$discord,$vlc,$powertoys,$winterminal,$vscode,$Label2))
 $Panel2.controls.AddRange(@($essentialtweaks,$backgroundapps,$cortana,$windowssearch,$actioncenter,$darkmode,$visualfx,$onedrive,$Label22,$lightmode))
 $Panel3.controls.AddRange(@($securitylow,$securityhigh,$Label5,$Label6,$Label7,$Label8,$Label9,$Label10,$Label11,$Label12,$Label13))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$Label16,$Label17,$Label18,$Label19))
@@ -471,9 +471,9 @@ $vlc.Add_Click({
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
-$mpc.Add_Click({ 
-    Write-Host "Installing Media Player Classic"
-    choco install mpc-be -y
+$discord.Add_Click({ 
+    Write-Host "Installing Discord"
+    choco install discord -y
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
@@ -676,6 +676,7 @@ $Bloatware = @(
         "Microsoft.WindowsSoundRecorder"
         "Microsoft.ZuneMusic"
         "Microsoft.ZuneVideo"
+		"Microsoft.Paint3D"
 
         #Sponsored Windows 10 AppX Apps
         #Add sponsored/featured apps to remove in the "*AppName*" format
