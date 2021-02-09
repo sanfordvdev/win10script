@@ -51,12 +51,12 @@ $installchoco.height             = 115
 $installchoco.location           = New-Object System.Drawing.Point(16,19)
 $installchoco.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',16)
 
-$brave                           = New-Object system.Windows.Forms.Button
-$brave.text                      = "Brave Browser"
-$brave.width                     = 150
-$brave.height                    = 30
-$brave.location                  = New-Object System.Drawing.Point(250,19)
-$brave.Font                      = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$steam                           = New-Object system.Windows.Forms.Button
+$steam.text                      = "Steam"
+$steam.width                     = 150
+$steam.height                    = 30
+$steam.location                  = New-Object System.Drawing.Point(250,19)
+$steam.Font                      = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $firefox                         = New-Object system.Windows.Forms.Button
 $firefox.text                    = "Firefox"
@@ -416,7 +416,7 @@ $lightmode.location              = New-Object System.Drawing.Point(417,45)
 $lightmode.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Form.controls.AddRange(@($Panel1,$Label1,$Panel2,$Label3,$Panel3,$Label4,$Label15,$Panel4,$Label20,$Label21,$Label23,$PictureBox1))
-$Panel1.controls.AddRange(@($installchoco,$brave,$firefox,$7zip,$irfanview,$adobereader,$notepad,$gchrome,$mpc,$vlc,$powertoys,$winterminal,$vscode,$Label2))
+$Panel1.controls.AddRange(@($installchoco,$steam,$firefox,$7zip,$irfanview,$adobereader,$notepad,$gchrome,$mpc,$vlc,$powertoys,$winterminal,$vscode,$Label2))
 $Panel2.controls.AddRange(@($essentialtweaks,$backgroundapps,$cortana,$windowssearch,$actioncenter,$darkmode,$visualfx,$onedrive,$Label22,$lightmode))
 $Panel3.controls.AddRange(@($securitylow,$securityhigh,$Label5,$Label6,$Label7,$Label8,$Label9,$Label10,$Label11,$Label12,$Label13))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$Label16,$Label17,$Label18,$Label19))
@@ -429,9 +429,9 @@ $installchoco.Add_Click({
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
-$brave.Add_Click({ 
-	Write-Host "Installing Brave Browser"
-	choco install brave -y
+$steam.Add_Click({ 
+	Write-Host "Installing Steam"
+	choco install steam -y
 	    $wshell.Popup("Operation Completed",0,"Done",0x0)	
 })
 
