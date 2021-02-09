@@ -436,8 +436,8 @@ $steam.Add_Click({
 })
 
 $syncthing.Add_Click({ 
-    Write-Host "Installing Synchting"
-    choco install synchting -y
+    Write-Host "Installing Syncthing"
+    choco install syncthing -y
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
@@ -460,7 +460,7 @@ $adobereader.Add_Click({
 })
 
 $office365.Add_Click({ 
-    Write-Host "Installing Notepad++"
+    Write-Host "Installing Office 365"
     choco install office365 -y
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
