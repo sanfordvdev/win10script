@@ -86,12 +86,12 @@ $adobereader.height              = 30
 $adobereader.location            = New-Object System.Drawing.Point(417,61)
 $adobereader.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$office365                         = New-Object system.Windows.Forms.Button
-$office365.text                    = "Office365"
-$office365.width                   = 150
-$office365.height                  = 30
-$office365.location                = New-Object System.Drawing.Point(417,104)
-$office365.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$spotify                         = New-Object system.Windows.Forms.Button
+$spotify.text                    = "Spotify"
+$spotify.width                   = 150
+$spotify.height                  = 30
+$spotify.location                = New-Object System.Drawing.Point(417,104)
+$spotify.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $git                        = New-Object system.Windows.Forms.Button
 $git.text                    = "Git"
@@ -416,7 +416,7 @@ $lightmode.location              = New-Object System.Drawing.Point(417,45)
 $lightmode.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Form.controls.AddRange(@($Panel1,$Label1,$Panel2,$Label3,$Panel3,$Label4,$Label15,$Panel4,$Label20,$Label21,$Label23,$PictureBox1))
-$Panel1.controls.AddRange(@($installchoco,$steam,$syncthing,$7zip,$irfanview,$adobereader,$office365,$git,$discord,$vlc,$powertoys,$winterminal,$vscode,$Label2))
+$Panel1.controls.AddRange(@($installchoco,$steam,$syncthing,$7zip,$irfanview,$adobereader,$spotify,$git,$discord,$vlc,$powertoys,$winterminal,$vscode,$Label2))
 $Panel2.controls.AddRange(@($essentialtweaks,$backgroundapps,$cortana,$windowssearch,$actioncenter,$darkmode,$visualfx,$onedrive,$Label22,$lightmode))
 $Panel3.controls.AddRange(@($securitylow,$securityhigh,$Label5,$Label6,$Label7,$Label8,$Label9,$Label10,$Label11,$Label12,$Label13))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$Label16,$Label17,$Label18,$Label19))
@@ -459,9 +459,9 @@ $adobereader.Add_Click({
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
-$office365.Add_Click({ 
-    Write-Host "Installing Office 365"
-    choco install office365 -y
+$spotify.Add_Click({ 
+    Write-Host "Installing Spotify"
+    choco install spotify -y
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
@@ -704,6 +704,7 @@ $Bloatware = @(
         "*Hulu*"
         "*HiddenCity*"
         "*AdobePhotoshopExpress*"
+		"*Spotify*"
                      
         #Optional: Typically not removed but you can if you need to for some reason
         #"*Microsoft.Advertising.Xaml_10.1712.5.0_x64__8wekyb3d8bbwe*"
