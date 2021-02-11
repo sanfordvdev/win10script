@@ -679,6 +679,7 @@ $Bloatware = @(
 		"*Microsoft.BingWeather*"
         "*Microsoft.MSPaint*"
 		"*Microsoft.MicrosoftStickyNotes*"
+		"*Microsoft.Windows.Photos*"
 		"*Microsoft.Advertising.Xaml_10.1712.5.0_x64__8wekyb3d8bbwe*"
         "*Microsoft.Advertising.Xaml_10.1712.5.0_x86__8wekyb3d8bbwe*"
 
