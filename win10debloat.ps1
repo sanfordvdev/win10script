@@ -676,7 +676,11 @@ $Bloatware = @(
         "Microsoft.WindowsSoundRecorder"
         "Microsoft.ZuneMusic"
         "Microsoft.ZuneVideo"
-		"Microsoft.Paint3D"
+		"*Microsoft.BingWeather*"
+        "*Microsoft.MSPaint*"
+		"*Microsoft.MicrosoftStickyNotes*"
+		"*Microsoft.Advertising.Xaml_10.1712.5.0_x64__8wekyb3d8bbwe*"
+        "*Microsoft.Advertising.Xaml_10.1712.5.0_x86__8wekyb3d8bbwe*"
 
         #Sponsored Windows 10 AppX Apps
         #Add sponsored/featured apps to remove in the "*AppName*" format
@@ -722,14 +726,14 @@ $Bloatware = @(
         Write-Host "Trying to remove $Bloat."
     }
 
-    Write-Host "Installing Windows Media Player..."
-	Enable-WindowsOptionalFeature -Online -FeatureName "WindowsMediaPlayer" -NoRestart -WarningAction SilentlyContinue | Out-Null
+    #Write-Host "Installing Windows Media Player..."
+	#Enable-WindowsOptionalFeature -Online -FeatureName "WindowsMediaPlayer" -NoRestart -WarningAction SilentlyContinue | Out-Null
 
     #Stops edge from taking over as the default .PDF viewer    
-    Write-Host "Stopping Edge from taking over as the default .PDF viewer"
+    #Write-Host "Stopping Edge from taking over as the default .PDF viewer"
 	# Identify the edge application class 
-	$Packages = "HKCU:SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\Repository\Packages" 
-	$edge = Get-ChildItem $Packages -Recurse -include "MicrosoftEdge" 
+	#$Packages = "HKCU:SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\Repository\Packages" 
+	#$edge = Get-ChildItem $Packages -Recurse -include "MicrosoftEdge" 
 		
 	# Specify the paths to the file and URL associations 
 	$FileAssocKey = Join-Path $edge.PSPath Capabilities\FileAssociations 
