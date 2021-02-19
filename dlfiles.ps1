@@ -1,5 +1,5 @@
 $source = 'https://github.com/SomeDeadGuy/UndeadPeopleTileset/archive/master.zip'
-$destination = 'C:\Users\sanfordvdev\Downloads\'
+$destination = 'C:\Users\sanfordvdev\Downloads\undeadtileset.zip'
 Start-BitsTransfer -Source $source -Destination $destination
 Start-Sleep -Seconds 10
 $source1 = 'https://github.com/microsoft/cascadia-code/archive/main.zip'
