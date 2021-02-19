@@ -79,12 +79,12 @@ $irfanview.height                = 30
 $irfanview.location              = New-Object System.Drawing.Point(417,19)
 $irfanview.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$adobereader                     = New-Object system.Windows.Forms.Button
-$adobereader.text                = "Adobe Reader DC"
-$adobereader.width               = 150
-$adobereader.height              = 30
-$adobereader.location            = New-Object System.Drawing.Point(417,61)
-$adobereader.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$dlfiles                     = New-Object system.Windows.Forms.Button
+$dlfiles.text                = "Download Files"
+$dlfiles.width               = 150
+$dlfiles.height              = 30
+$dlfiles.location            = New-Object System.Drawing.Point(417,61)
+$dlfiles.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $spotify                         = New-Object system.Windows.Forms.Button
 $spotify.text                    = "Spotify"
@@ -453,9 +453,9 @@ $irfanview.Add_Click({
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
-$adobereader.Add_Click({ 
-    Write-Host "Installing Adobe Reader DC"
-    choco install adobereader -y
+$dlfiles.Add_Click({ 
+    Write-Host "Downloading Files from Internet"
+    .\dlfiles.ps1
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
