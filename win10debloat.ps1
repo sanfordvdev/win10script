@@ -65,12 +65,12 @@ $syncthing.height                  = 30
 $syncthing.location                = New-Object System.Drawing.Point(250,61)
 $syncthing.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$7zip                            = New-Object system.Windows.Forms.Button
-$7zip.text                       = "7-Zip"
-$7zip.width                      = 150
-$7zip.height                     = 30
-$7zip.location                   = New-Object System.Drawing.Point(584,104)
-$7zip.Font                       = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$drivers                            = New-Object system.Windows.Forms.Button
+$drivers.text                       = "Drivers"
+$drivers.width                      = 150
+$drivers.height                     = 30
+$drivers.location                   = New-Object System.Drawing.Point(584,104)
+$drivers.Font                       = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $irfanview                       = New-Object system.Windows.Forms.Button
 $irfanview.text                  = "Irfanview"
@@ -416,7 +416,7 @@ $lightmode.location              = New-Object System.Drawing.Point(417,45)
 $lightmode.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Form.controls.AddRange(@($Panel1,$Label1,$Panel2,$Label3,$Panel3,$Label4,$Label15,$Panel4,$Label20,$Label21,$Label23,$PictureBox1))
-$Panel1.controls.AddRange(@($installchoco,$steam,$syncthing,$7zip,$irfanview,$dlfiles,$spotify,$git,$discord,$vlc,$powertoys,$winterminal,$vscode,$Label2))
+$Panel1.controls.AddRange(@($installchoco,$steam,$syncthing,$drivers,$irfanview,$dlfiles,$spotify,$git,$discord,$vlc,$powertoys,$winterminal,$vscode,$Label2))
 $Panel2.controls.AddRange(@($essentialtweaks,$backgroundapps,$cortana,$windowssearch,$actioncenter,$darkmode,$visualfx,$onedrive,$Label22,$lightmode))
 $Panel3.controls.AddRange(@($securitylow,$securityhigh,$Label5,$Label6,$Label7,$Label8,$Label9,$Label10,$Label11,$Label12,$Label13))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$Label16,$Label17,$Label18,$Label19))
@@ -477,9 +477,11 @@ $discord.Add_Click({
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
-$7zip.Add_Click({ 
-    Write-Host "Installing 7-Zip Compression Tool"
-    choco install 7zip -y
+$drivers.Add_Click({ 
+    Write-Host "Installing AMD/Intel/Samsung Drivers"
+    choco install intel-network-drivers-win10 -y
+	choco install amd-ryzen-chipset -y
+	choco install samsung-nvme-driver
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
