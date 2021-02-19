@@ -8,4 +8,8 @@ I added the following
 - Download Files from github script
 - Changed lots of apps to ones I use
 
+## To Do
+- Possible webhooks
+- GO thropugh and configuire Essential Tweaks to my exact needs
+
 For complete details check out https://christitus.com/debloat-windows-10-2020/
