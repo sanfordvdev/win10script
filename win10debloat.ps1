@@ -46,8 +46,8 @@ $Label1.Font                     = New-Object System.Drawing.Font('Microsoft San
 
 $installchoco                    = New-Object system.Windows.Forms.Button
 $installchoco.text               = "Install Chocolatey"
-$installchoco.width              = 200
-$installchoco.height             = 115
+$installchoco.width              = 115
+$installchoco.height             = 30
 $installchoco.location           = New-Object System.Drawing.Point(16,19)
 $installchoco.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',16)
 
@@ -65,12 +65,12 @@ $syncthing.height                  = 30
 $syncthing.location                = New-Object System.Drawing.Point(250,61)
 $syncthing.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$drivers                            = New-Object system.Windows.Forms.Button
-$drivers.text                       = "Drivers"
-$drivers.width                      = 150
-$drivers.height                     = 30
-$drivers.location                   = New-Object System.Drawing.Point(584,104)
-$drivers.Font                       = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$inteldrivers                            = New-Object system.Windows.Forms.Button
+$inteldrivers.text                       = "Intel Netowrk Driver"
+$inteldrivers.width                      = 150
+$inteldrivers.height                     = 30
+$inteldrivers.location                   = New-Object System.Drawing.Point(584,104)
+$inteldrivers.Font                       = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $irfanview                       = New-Object system.Windows.Forms.Button
 $irfanview.text                  = "Irfanview"
@@ -107,12 +107,12 @@ $discord.height                      = 30
 $discord.location                    = New-Object System.Drawing.Point(584,61)
 $discord.Font                        = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$vlc                             = New-Object system.Windows.Forms.Button
-$vlc.text                        = "VLC"
-$vlc.width                       = 150
-$vlc.height                      = 30
-$vlc.location                    = New-Object System.Drawing.Point(584,19)
-$vlc.Font                        = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$amddrivers                             = New-Object system.Windows.Forms.Button
+$amddrivers.text                        = "Amd Chipset"
+$amddrivers.width                       = 150
+$amddrivers.height                      = 30
+$amddrivers.location                    = New-Object System.Drawing.Point(584,19)
+$amddrivers.Font                        = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $powertoys                       = New-Object system.Windows.Forms.Button
 $powertoys.text                  = "PowerToys"
@@ -416,7 +416,7 @@ $lightmode.location              = New-Object System.Drawing.Point(417,45)
 $lightmode.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Form.controls.AddRange(@($Panel1,$Label1,$Panel2,$Label3,$Panel3,$Label4,$Label15,$Panel4,$Label20,$Label21,$Label23,$PictureBox1))
-$Panel1.controls.AddRange(@($installchoco,$steam,$syncthing,$drivers,$irfanview,$dlfiles,$spotify,$git,$discord,$vlc,$powertoys,$winterminal,$vscode,$Label2))
+$Panel1.controls.AddRange(@($installchoco,$steam,$syncthing,$inteldrivers,$irfanview,$dlfiles,$spotify,$git,$discord,$amddrivers,$powertoys,$winterminal,$vscode,$Label2))
 $Panel2.controls.AddRange(@($essentialtweaks,$backgroundapps,$cortana,$windowssearch,$actioncenter,$darkmode,$visualfx,$onedrive,$Label22,$lightmode))
 $Panel3.controls.AddRange(@($securitylow,$securityhigh,$Label5,$Label6,$Label7,$Label8,$Label9,$Label10,$Label11,$Label12,$Label13))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$Label16,$Label17,$Label18,$Label19))
@@ -465,9 +465,9 @@ $spotify.Add_Click({
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
-$vlc.Add_Click({ 
-    Write-Host "Installing VLC Media Player"
-    choco install vlc -y
+$amddrivers.Add_Click({ 
+    Write-Host "Installing Amd Chipset Drivers"
+    choco install amd-ryzen-chipset -y
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
@@ -477,8 +477,8 @@ $discord.Add_Click({
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
-$drivers.Add_Click({ 
-    Write-Host "Installing AMD/Intel/Samsung Drivers"
+$inteldrivers.Add_Click({ 
+    Write-Host "Installing Intel Drivers"
     choco install intel-network-drivers-win10 -y
 	choco install amd-ryzen-chipset -y
 	choco install samsung-nvme-driver
