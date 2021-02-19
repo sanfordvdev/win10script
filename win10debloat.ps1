@@ -46,7 +46,7 @@ $Label1.Font                     = New-Object System.Drawing.Font('Microsoft San
 
 $installchoco                    = New-Object system.Windows.Forms.Button
 $installchoco.text               = "Install Chocolatey"
-$installchoco.width              = 115
+$installchoco.width              = 150
 $installchoco.height             = 30
 $installchoco.location           = New-Object System.Drawing.Point(16,19)
 $installchoco.Font               = New-Object System.Drawing.Font('Microsoft Sans Serif',16)
@@ -66,7 +66,7 @@ $syncthing.location                = New-Object System.Drawing.Point(250,61)
 $syncthing.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $inteldrivers                            = New-Object system.Windows.Forms.Button
-$inteldrivers.text                       = "Intel Netowrk Driver"
+$inteldrivers.text                       = "Intel Net Driver"
 $inteldrivers.width                      = 150
 $inteldrivers.height                     = 30
 $inteldrivers.location                   = New-Object System.Drawing.Point(584,104)
@@ -79,12 +79,12 @@ $irfanview.height                = 30
 $irfanview.location              = New-Object System.Drawing.Point(417,19)
 $irfanview.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$dlfiles                     = New-Object system.Windows.Forms.Button
-$dlfiles.text                = "Download Files"
-$dlfiles.width               = 150
-$dlfiles.height              = 30
-$dlfiles.location            = New-Object System.Drawing.Point(417,61)
-$dlfiles.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$samdriver                     = New-Object system.Windows.Forms.Button
+$samdriver.text                = "Samsung NVME"
+$samdriver.width               = 150
+$samdriver.height              = 30
+$samdriver.location            = New-Object System.Drawing.Point(417,61)
+$samdriver.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $spotify                         = New-Object system.Windows.Forms.Button
 $spotify.text                    = "Spotify"
@@ -205,12 +205,12 @@ $visualfx.height                 = 30
 $visualfx.location               = New-Object System.Drawing.Point(417,82)
 $visualfx.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
-$onedrive                        = New-Object system.Windows.Forms.Button
-$onedrive.text                   = "OneDrive"
-$onedrive.width                  = 150
-$onedrive.height                 = 30
-$onedrive.location               = New-Object System.Drawing.Point(251,119)
-$onedrive.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
+$dlfiles                        = New-Object system.Windows.Forms.Button
+$dlfiles.text                   = "Download Files"
+$dlfiles.width                  = 150
+$dlfiles.height                 = 30
+$dlfiles.location               = New-Object System.Drawing.Point(251,119)
+$dlfiles.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Panel3                          = New-Object system.Windows.Forms.Panel
 $Panel3.height                   = 158
@@ -416,8 +416,8 @@ $lightmode.location              = New-Object System.Drawing.Point(417,45)
 $lightmode.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',12)
 
 $Form.controls.AddRange(@($Panel1,$Label1,$Panel2,$Label3,$Panel3,$Label4,$Label15,$Panel4,$Label20,$Label21,$Label23,$PictureBox1))
-$Panel1.controls.AddRange(@($installchoco,$steam,$syncthing,$inteldrivers,$irfanview,$dlfiles,$spotify,$git,$discord,$amddrivers,$powertoys,$winterminal,$vscode,$Label2))
-$Panel2.controls.AddRange(@($essentialtweaks,$backgroundapps,$cortana,$windowssearch,$actioncenter,$darkmode,$visualfx,$onedrive,$Label22,$lightmode))
+$Panel1.controls.AddRange(@($installchoco,$steam,$syncthing,$inteldrivers,$irfanview,$samdriver,$spotify,$git,$discord,$amddrivers,$powertoys,$winterminal,$vscode,$Label2))
+$Panel2.controls.AddRange(@($essentialtweaks,$backgroundapps,$cortana,$windowssearch,$actioncenter,$darkmode,$visualfx,$dlfiles,$Label22,$lightmode))
 $Panel3.controls.AddRange(@($securitylow,$securityhigh,$Label5,$Label6,$Label7,$Label8,$Label9,$Label10,$Label11,$Label12,$Label13))
 $Panel4.controls.AddRange(@($defaultwindowsupdate,$securitywindowsupdate,$Label16,$Label17,$Label18,$Label19))
 
@@ -453,9 +453,9 @@ $irfanview.Add_Click({
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
-$dlfiles.Add_Click({ 
-    Write-Host "Downloading Files from Internet"
-    .\dlfiles.ps1
+$samdriver.Add_Click({ 
+    Write-Host "Installing Samsung NVME Driver"
+    choco install samsung-nvme-driver -y
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
@@ -480,8 +480,6 @@ $discord.Add_Click({
 $inteldrivers.Add_Click({ 
     Write-Host "Installing Intel Drivers"
     choco install intel-network-drivers-win10 -y
-	choco install amd-ryzen-chipset -y
-	choco install samsung-nvme-driver
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
@@ -958,32 +956,9 @@ $visualfx.Add_Click({
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
-$onedrive.Add_Click({ 
-    Write-Host "Disabling OneDrive..."
-	If (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive")) {
-		New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive" | Out-Null
-	}
-	Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive" -Name "DisableFileSyncNGSC" -Type DWord -Value 1
-    Write-Host "Uninstalling OneDrive..."
-	Stop-Process -Name "OneDrive" -ErrorAction SilentlyContinue
-	Start-Sleep -s 2
-	$onedrive = "$env:SYSTEMROOT\SysWOW64\OneDriveSetup.exe"
-	If (!(Test-Path $onedrive)) {
-		$onedrive = "$env:SYSTEMROOT\System32\OneDriveSetup.exe"
-	}
-	Start-Process $onedrive "/uninstall" -NoNewWindow -Wait
-	Start-Sleep -s 2
-	Stop-Process -Name "explorer" -ErrorAction SilentlyContinue
-	Start-Sleep -s 2
-	Remove-Item -Path "$env:USERPROFILE\OneDrive" -Force -Recurse -ErrorAction SilentlyContinue
-	Remove-Item -Path "$env:LOCALAPPDATA\Microsoft\OneDrive" -Force -Recurse -ErrorAction SilentlyContinue
-	Remove-Item -Path "$env:PROGRAMDATA\Microsoft OneDrive" -Force -Recurse -ErrorAction SilentlyContinue
-	Remove-Item -Path "$env:SYSTEMDRIVE\OneDriveTemp" -Force -Recurse -ErrorAction SilentlyContinue
-	If (!(Test-Path "HKCR:")) {
-		New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-Null
-	}
-	Remove-Item -Path "HKCR:\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" -Recurse -ErrorAction SilentlyContinue
-	Remove-Item -Path "HKCR:\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" -Recurse -ErrorAction SilentlyContinue
+$dlfiles.Add_Click({ 
+    Write-Host "Downloading Files from Internet"
+    .\dlfiles.ps1
 	$wshell.Popup("Operation Completed",0,"Done",0x0)
 })
 
