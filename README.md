@@ -11,5 +11,6 @@ I added the following
 ## To Do
 - Possible webhooks
 - GO through and configure Essential Tweaks to my exact needs
+- Work on getting profiles auto pulled in
 
 For complete details check out https://christitus.com/debloat-windows-10-2020/
